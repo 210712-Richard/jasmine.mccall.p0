@@ -38,7 +38,7 @@ public class StartMenu {
 				}
 				break;
 			case 2:
-				// register
+				//if (users != username)
 				break;
 			case 3:
 				System.out.println("Goodbye!");
@@ -99,19 +99,12 @@ public class StartMenu {
 			
 			switch(shopMenu()) {
 			case 1:
-                colorMenu();
-				break;
-				
+                color();
 			case 2: 
-				color();
-				break;
-				
 			case 3:
-			    color();
 				break;
-				
 			case 4:
-				customerMenu();
+				customerMenu(); //need to fix
 				break;
 				}
 			}
@@ -161,7 +154,8 @@ public class StartMenu {
 			
 		switch(sellerMenu()) {
 		    case 1:
-			   System.out.println("What would you like to add?");
+		    	
+			   addMenu();
 			   break;
 			   
 			case 2:		
@@ -183,6 +177,37 @@ public class StartMenu {
 			System.out.println("\t3. Logout");
 			return select();
 		}
+	
+//	public void add() {
+//		while(true) {
+//			
+//		switch(addMenu()) {
+//		    case 1:
+//		    	
+//			   //System.out.println("What would you like to add");
+//			   break;
+//			   
+//			case 2:		
+//			// show new orders
+//				System.out.println("Orders Processed Successfully!");
+//				break;
+//				
+//			case 3:
+//				System.out.println("Logout Successful");
+//		}
+//	}		
+//	}	
+
+	
+	private void addMenu() {
+			System.out.println("What would you like to add?");
+			//add.item = scan.nextLine();
+			System.out.println("What is the price of the item?");
+			//price.item = scan.nextFloat();
+			//System.out.println("\t3. Logout");
+			//return select();
+		}
+		
 	
 	
 	private int select() {

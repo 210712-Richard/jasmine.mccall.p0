@@ -5,15 +5,15 @@ import java.text.NumberFormat;
 public class Item {
 
 	private String name;
-	private int price;
+	private float price;
 	private int quantity;
 	
 
 	
-	public Item(String name, int price, int totalItems) {
+	public Item(String name, float price) {
 		this.name = name;
 		this.price = price;
-		this.quantity = totalItems;
+		//this.quantity = totalItems;
 	}
 
 	public String getName() {
@@ -24,21 +24,12 @@ public class Item {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + price;
-		return result;
 	}
 
 	@Override
