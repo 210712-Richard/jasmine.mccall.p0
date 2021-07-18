@@ -3,11 +3,14 @@ package com.revature.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.revature.beans.GachaObject;
+
 public class User {
 	
 	private String username; 
 	private String email;
 	private List <Cart> inventory;
+	private int coupon;
 	private UserType type;
 	private LocalDate lastCheckIn;
 	
