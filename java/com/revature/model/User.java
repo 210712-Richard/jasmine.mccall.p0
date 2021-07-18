@@ -12,6 +12,7 @@ public class User {
 	private int coupon;
 	private UserType type;
 	private LocalDate lastCheckIn;
+	public static int cart;
 	
 	public User() {
 		super();
@@ -117,9 +118,10 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", inventory=" + inventory + ", coupon=" + coupon
-				+ ", type=" + type + ", lastCheckIn=" + lastCheckIn + "]";
+		return "User [username=" + username + ", email=" + email + ", type=" + type + ", lastCheckIn=" + lastCheckIn
+				+ "]";
 	}
+
 
 	
 

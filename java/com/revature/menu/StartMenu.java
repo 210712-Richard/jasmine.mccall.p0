@@ -64,9 +64,9 @@ public class StartMenu {
 			case 1:
 				// Shop Switch to shop menu
 				System.out.println("What would you like to buy?");
-				System.out.println("\t1. Standard Cash Envelopes");
-				System.out.println("\t2. Mini Cash Envelopes");
-				System.out.println("\t3. Cash Breakdown Card");
+//				System.out.println("\t1. Standard Cash Envelopes");
+//				System.out.println("\t2. Mini Cash Envelopes");
+//				System.out.println("\t3. Cash Breakdown Card");
 				
 				break;
 				

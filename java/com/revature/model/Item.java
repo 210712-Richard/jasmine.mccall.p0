@@ -1,21 +1,19 @@
 package com.revature.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.text.NumberFormat;
 
 public class Item {
 
 	private String name;
 	private int price;
+	private int quantity;
 	
-//	Map<String, Integer> item = new HashMap<>();
-//	 item.put ("Standard Cash Envelope", 3);
-//	
+
 	
-	
-	public Item(String name, int price) {
+	public Item(String name, int price, int totalItems) {
 		this.name = name;
 		this.price = price;
+		this.quantity = totalItems;
 	}
 
 	public String getName() {
@@ -64,9 +62,10 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [name=" + name + ", price=" + price + "]";
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+		return "name=" + name + ", price=" + currency.format(price)  + quantity + currency.format(price*quantity);
 	}
 	
-//	public int priceOfIem()
+
 
 }
