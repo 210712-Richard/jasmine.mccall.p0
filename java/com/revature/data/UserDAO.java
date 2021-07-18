@@ -7,8 +7,7 @@ import com.revature.model.User;
 import com.revature.model.UserType;
 
 public class UserDAO {
-	// DAO = Database Access Object
-	// This is a class that is dedicated to accessing data from persistence.
+
 	private static String filename = "users.dat";
 	private static List<User> users;
 	
@@ -16,7 +15,6 @@ public class UserDAO {
 		DataSerializer<User> ds = new DataSerializer<User>();
 		users = ds.readObjectsFromFile(filename);
 		
-		// Helper for myself. If no users exist in the users.dat file (first startup) than I should create a few
 		if(users == null) {
 			users = new ArrayList<User>();
 			User u = new User("jasmine", "jasmine@jasmineswallet.com");

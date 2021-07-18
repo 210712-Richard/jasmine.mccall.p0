@@ -8,9 +8,9 @@ public class Item {
 	private String name;
 	private int price;
 	
-	Map<String, Integer> item = new HashMap<>();
-	 item.put ("Standard Cash Envelope", 3);
-	
+//	Map<String, Integer> item = new HashMap<>();
+//	 item.put ("Standard Cash Envelope", 3);
+//	
 	
 	
 	public Item(String name, int price) {
@@ -67,6 +67,6 @@ public class Item {
 		return "Item [name=" + name + ", price=" + price + "]";
 	}
 	
-	public int priceOfIem()
+//	public int priceOfIem()
 
 }

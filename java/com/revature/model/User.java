@@ -3,7 +3,6 @@ package com.revature.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.revature.beans.GachaObject;
 
 public class User {
 	
@@ -63,10 +62,17 @@ public class User {
 	public void setType(UserType type) {
 		this.type = type;
 	}
+	public int getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(int coupon) {
+		this.coupon = coupon;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + coupon;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
 		result = prime * result + ((lastCheckIn == null) ? 0 : lastCheckIn.hashCode());
@@ -74,7 +80,6 @@ public class User {
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -84,6 +89,8 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (coupon != other.coupon)
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -108,13 +115,12 @@ public class User {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", inventory=" + inventory + ", type=" + type
-				+ ", lastCheckIn=" + lastCheckIn + "]";
+		return "User [username=" + username + ", email=" + email + ", inventory=" + inventory + ", coupon=" + coupon
+				+ ", type=" + type + ", lastCheckIn=" + lastCheckIn + "]";
 	}
-	
+
 	
 
 }
