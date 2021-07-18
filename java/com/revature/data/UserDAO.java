@@ -1,5 +1,6 @@
 package com.revature.data;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,10 @@ public class UserDAO {
 		
 		if(users == null) {
 			users = new ArrayList<User>();
+			User t = new User("tim", "tim@yahoo.com");
 			User u = new User("jasmine", "jasmine@jasmineswallet.com");
 			u.setType(UserType.SELLER);
+			users.add(t);
 			users.add(u);
 			ds.writeObjectsToFile(users, filename);
 		}

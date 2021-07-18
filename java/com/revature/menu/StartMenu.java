@@ -1,3 +1,4 @@
+
 package com.revature.menu;
 
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class StartMenu {
 			case 1:
 				System.out.println("Please enter your username: ");
 				String username = scan.nextLine();
-				User u = us.login(username);
+				User u = us.login(username);				
 				if(u == null) {
 					System.out.println("Please try again.");
 				} else {
@@ -40,12 +41,11 @@ public class StartMenu {
 				// register
 				break;
 			case 3:
-				// quit
 				System.out.println("Goodbye!");
 			default:
 				System.out.println("Not a valid selection, please try again.");
 			}
-		}
+		 }
 	}
 	
 	private int startMenu() {
@@ -58,37 +58,32 @@ public class StartMenu {
 		return selection;
 	}
 	
-	private int customer() {
-
+	public void customer() {
+            while(true) {
 			switch(customerMenu()) {
 			case 1:
-				// Shop Switch to shop menu
-				System.out.println("What would you like to buy?");
-//				System.out.println("\t1. Standard Cash Envelopes");
-//				System.out.println("\t2. Mini Cash Envelopes");
-//				System.out.println("\t3. Cash Breakdown Card");
-				
+				shop();
 				break;
 				
 			case 2: 
 				// view cart
-					System.out.println("You have _ in your cart" );
-	
+				System.out.println("You have _ in your cart" );
 				break;
 			case 3:
 				// View Coupons
 				break;
 			case 4:
 				System.out.println("Your total is $"   );
-				loggedUser = null;
 				break;
-				}
-			return 0;
+				
+			case 5:
+				loggedUser = null;
+				System.out.println("Logout Successful!");
+				start();
+				break;
 			}
-
-		
-	//}
-	
+			}
+	}
 	private int customerMenu() {
 		System.out.println("What would you like to do?");
 		System.out.println("\t1. Shop");
@@ -98,11 +93,96 @@ public class StartMenu {
 		System.out.println("\t5. Logout");
 		return select();
 	}
-	private void seller() {
-		seller: while(true) {
+
+	public void shop() {
+		while(true) {
 			
-		}
+			switch(shopMenu()) {
+			case 1:
+                colorMenu();
+				break;
+				
+			case 2: 
+				color();
+				break;
+				
+			case 3:
+			    color();
+				break;
+				
+			case 4:
+				customerMenu();
+				break;
+				}
+			}
+			}
+	private int shopMenu() {
+		System.out.println("What would you like to buy?");
+		System.out.println("\t1. Standard Cash Envelopes - $3.00");
+		System.out.println("\t2. Mini Cash Envelopes - $2.50");
+		System.out.println("\t3. Cash Breakdown Card - $2.00");
+		System.out.println("\t4. Main Menu");
+		return select();
 	}
+	
+	public void color() {
+		
+		while(true) {
+			switch(colorMenu()) {
+			case 1:
+				System.out.println("++Added to Cart");
+				break;
+				
+			case 2: 
+				System.out.println("++Added to Cart");
+				break;
+				
+			case 3:
+				System.out.println("++Added to Cart");
+				break;
+			case 4:
+				shopMenu();
+				break;
+				}
+			
+	}
+			}
+	private int colorMenu() {
+		System.out.println("Which color would you like?");
+		System.out.println("\t1. Blush Pink");
+		System.out.println("\t2. White");
+		System.out.println("\t3. Tan");
+        System.out.println("\t4. Go Back");
+		return select();
+	}
+	
+	public void seller() {
+		while(true) {
+			
+		switch(sellerMenu()) {
+		    case 1:
+			   System.out.println("What would you like to add?");
+			   break;
+			   
+			case 2:		
+			// show new orders
+				System.out.println("Orders Processed Successfully!");
+				break;
+				
+			case 3:
+				System.out.println("Logout Successful");
+		}
+	}		
+	}	
+
+	
+	private int sellerMenu() {
+			System.out.println("What would you like to do?");
+			System.out.println("\t1. Add New Items");
+			System.out.println("\t2. Process Orders");
+			System.out.println("\t3. Logout");
+			return select();
+		}
 	
 	
 	private int select() {
