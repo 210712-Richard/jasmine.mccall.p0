@@ -1,6 +1,7 @@
 
 package com.revature.menu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.model.User;
@@ -13,6 +14,7 @@ public class StartMenu {
 	private UserServices us = new UserServices();
 	private User loggedUser = null;
 	private Scanner scan = SingletonScanner.getScanner().getScan();
+	//private User newUser = null;
 	
 	public void start() {
 
@@ -38,7 +40,7 @@ public class StartMenu {
 				}
 				break;
 			case 2:
-				//if (users != username)
+				registerMenu();
 				break;
 			case 3:
 				System.out.println("Goodbye!");
@@ -48,6 +50,17 @@ public class StartMenu {
 		 }
 	}
 	
+	private void registerMenu() {
+		
+		System.out.println("Enter your username");
+		String username = scan.nextLine();
+		System.out.println("Enter your email address");
+		String email = scan.nextLine();
+		System.out.println("Registration complete!");
+		
+		
+	}
+
 	private int startMenu() {
 		System.out.println("Welcome to Jasmine's Wallet");
 		System.out.println("What would you like to do?");
@@ -70,10 +83,12 @@ public class StartMenu {
 				System.out.println("You have _ in your cart" );
 				break;
 			case 3:
-				// View Coupons
+				//get coupon
+				System.out.println("You have _% off!");
 				break;
 			case 4:
-				System.out.println("Your total is $"   );
+				System.out.println("Your total is $");
+				System.out.println("Thank you for your purchase!");
 				break;
 				
 			case 5:
@@ -100,11 +115,15 @@ public class StartMenu {
 			switch(shopMenu()) {
 			case 1:
                 color();
-			case 2: 
+                break;
+			case 2:
+				color();
+				break;
 			case 3:
+				color();
 				break;
 			case 4:
-				customerMenu(); //need to fix
+				customer(); 
 				break;
 				}
 			}
@@ -134,7 +153,7 @@ public class StartMenu {
 				System.out.println("++Added to Cart");
 				break;
 			case 4:
-				shopMenu();
+				shop();
 				break;
 				}
 			

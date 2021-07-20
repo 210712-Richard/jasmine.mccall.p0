@@ -1,11 +1,16 @@
 package com.revature.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username; 
 	private String email;
 	private List <Cart> inventory;
@@ -20,10 +25,11 @@ public class User {
 		this.lastCheckIn = LocalDate.of(2021,1,1);
 		
 	}
-	public User(String username, String email) {
+	public User(String username, String email, int coupon) {
 		this();
 		this.username = username;
 		this.email = email;
+		this.coupon = coupon;
 	}
 
 	public String getUsername() {

@@ -1,32 +1,38 @@
 package com.revature.data;
 
-import java.time.LocalDate;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.model.User;
 import com.revature.model.UserType;
 
-public class UserDAO {
+public class UserDAO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static String filename = "user.dat";
 	private static List<User> users;
 	
 	static {
 		DataSerializer<User> ds = new DataSerializer<User>();
-		users = ds.readObjectsFromFile(filename);
+		users = ds.readObjectsFromFile("user.dat");
 		
 		if(users == null) {
 			users = new ArrayList<User>();
-			User t = new User("tim", "tim@yahoo.com");
-			User u = new User("jasmine", "jasmine@jasmineswallet.com");
+			users.add(new User("tim", "tim@yahoo.com", 10));
+			User u = new User("jasmine", "jasmine@jasmineswallet.com", 0);
 			u.setType(UserType.SELLER);
-			users.add(t);
 			users.add(u);
-			ds.writeObjectsToFile(users, filename);
+			ds.writeObjectsToFile(users, "user.dat");
 		}
 	}
 	public void addUser(User u) {
+		
+
 		
 	}
 	

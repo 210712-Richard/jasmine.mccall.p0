@@ -7,7 +7,7 @@ public class Cart<T> {
 
    private Item[] array;
    private int itemCount;  
-   private int totalPrice;
+   private float totalPrice;
    public static final Integer INITIAL_CAPACITY = 25;
    private int capacity;
    
@@ -30,9 +30,9 @@ public class Cart<T> {
 ////		return (T) this.array[index];
 		
 		
-   public void addToCart (String name, int price, int quantity) {
+   public void addToCart (String name, float price, int quantity) {
    
-       Item temp = new Item(name, price, quantity);
+       Item temp = new Item(name, price);
        totalPrice += (price * quantity);
        array[itemCount] = temp;
        itemCount += 1;
