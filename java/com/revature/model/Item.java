@@ -13,7 +13,6 @@ public class Item {
 	public Item(String name, float price) {
 		this.name = name;
 		this.price = price;
-		//this.quantity = totalItems;
 	}
 
 	public String getName() {

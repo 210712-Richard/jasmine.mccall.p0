@@ -18,6 +18,7 @@ public class UserServices {
 	public void doCheckIn(User user) {
 		user.setLastCheckIn(LocalDate.now());
 		user.setInventory(user.getInventory());
+		user.setCoupon(user.getCoupon());
 		ud.writeToFile();
 		
 	}
@@ -26,6 +27,7 @@ public class UserServices {
 		User u = new User();
 		u.setUsername(username);
 		u.setEmail(email);
+		u.setCoupon(10);
 		ud.addUser(u);
 		ud.writeToFile();
 	}
@@ -36,5 +38,10 @@ public class UserServices {
 		}
 		return true;
 	}
+	public boolean checkAvailability(String newName) {
+		return ud.getUser()
+				.stream()
+				.noneMatch((u)->u.getUsername().equals(newName));
 
+}
 }

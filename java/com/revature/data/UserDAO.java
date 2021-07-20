@@ -31,9 +31,12 @@ public class UserDAO implements Serializable {
 		}
 	}
 	public void addUser(User u) {
-		
+		users.add(u);
 
 		
+	}
+	public List<User> getUser(){
+		return users;
 	}
 	
 	public User getUser(String username) {

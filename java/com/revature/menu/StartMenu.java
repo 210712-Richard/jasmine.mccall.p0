@@ -40,7 +40,16 @@ public class StartMenu {
 				}
 				break;
 			case 2:
-				registerMenu();
+				System.out.println("Enter a username: ");
+				String newName = scan.nextLine();
+				if(!us.checkAvailability(newName)) {
+					System.out.println("Username not available, please try again.");
+					start();
+				}
+				System.out.println("Enter your email address: ");
+				String email = scan.nextLine();
+				us.register(newName, email);
+				System.out.println("Thank you for registering! You recieved a 10% off coupon.");
 				break;
 			case 3:
 				System.out.println("Goodbye!");
@@ -50,16 +59,6 @@ public class StartMenu {
 		 }
 	}
 	
-	private void registerMenu() {
-		
-		System.out.println("Enter your username");
-		String username = scan.nextLine();
-		System.out.println("Enter your email address");
-		String email = scan.nextLine();
-		System.out.println("Registration complete!");
-		
-		
-	}
 
 	private int startMenu() {
 		System.out.println("Welcome to Jasmine's Wallet");
@@ -84,7 +83,7 @@ public class StartMenu {
 				break;
 			case 3:
 				//get coupon
-				System.out.println("You have _% off!");
+				System.out.println("You have " + loggedUser.getCoupon() + "% off!");
 				break;
 			case 4:
 				System.out.println("Your total is $");
@@ -103,7 +102,7 @@ public class StartMenu {
 		System.out.println("What would you like to do?");
 		System.out.println("\t1. Shop");
 		System.out.println("\t2. View Cart");
-		System.out.println("\t3. Check Coupons");
+		System.out.println("\t3. View Coupons");
 		System.out.println("\t4. Checkout");
 		System.out.println("\t5. Logout");
 		return select();
@@ -143,6 +142,7 @@ public class StartMenu {
 			switch(colorMenu()) {
 			case 1:
 				System.out.println("++Added to Cart");
+				//loggedUser
 				break;
 				
 			case 2: 
@@ -183,7 +183,8 @@ public class StartMenu {
 				break;
 				
 			case 3:
-				System.out.println("Logout Successful");
+				System.out.println("Logout Successful!");
+				start();
 		}
 	}		
 	}	
