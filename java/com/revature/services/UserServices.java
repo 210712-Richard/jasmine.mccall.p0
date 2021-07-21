@@ -17,7 +17,7 @@ public class UserServices {
 	
 	public void doCheckIn(User user) {
 		user.setLastCheckIn(LocalDate.now());
-		user.setInventory(user.getInventory());
+		user.setCart(user.getCart());
 		user.setCoupon(user.getCoupon());
 	
 		ud.writeToFile();

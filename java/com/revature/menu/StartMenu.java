@@ -80,7 +80,7 @@ public class StartMenu {
 			case 2: 
 				// view cart
 				
-				System.out.println("You have " + loggedUser.getInventory() + "in your cart" );
+				System.out.println("You have " + loggedUser.getCart() + " items in your cart" );
 				break;
 			case 3:
 				//get coupon

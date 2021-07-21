@@ -13,7 +13,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username; 
 	private String email;
-	private List <Cart> inventory;
+	private List <Inventory> inventory;
 	private int coupon;
 	private UserType type;
 	private LocalDate lastCheckIn;
@@ -48,11 +48,11 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public List<Cart> getInventory() {
+	public List<Inventory> getInventory() {
 		return inventory;
 	}
 
-	public void setInventory(List<Cart> inventory) {
+	public void setInventory(List<Inventory> inventory) {
 		this.inventory = inventory;
 	}
 	
@@ -74,6 +74,13 @@ public class User implements Serializable {
 	}
 	public void setCoupon(int coupon) {
 		this.coupon = coupon;
+	}
+	
+	public int getCart() {
+		return cart;
+	}
+	public void setCart(int cart) {
+		User.cart = cart;
 	}
 	@Override
 	public int hashCode() {
@@ -122,6 +129,7 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", email=" + email + ", type=" + type + ", lastCheckIn=" + lastCheckIn
