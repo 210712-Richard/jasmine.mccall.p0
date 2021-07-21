@@ -7,11 +7,13 @@ import com.revature.beans.Item;
 import com.revature.beans.User;
 import com.revature.data.ItemDAO;
 import com.revature.data.UserDAO;
+import com.revature.data.CartDAO;
 
 public class UserServices {
 	
 	public UserDAO ud = new UserDAO();
 	public ItemDAO id = new ItemDAO();
+	public CartDAO cd = new CartDAO();
 	
 	public User login(String name) {
 		User u = ud.getUser(name);
@@ -47,6 +49,9 @@ public class UserServices {
 	public void addToCart(String name, float price, int quantity) {
 		Cart c = new Cart();
 		c.addToCart(name, price, quantity);
+		cd.addCart(c);
+		cd.writeToFile();
+		
 		
 		
 		

@@ -144,7 +144,9 @@ public class StartMenu {
 			switch(colorMenu()) {
 			case 1:
 				System.out.println("++Added to Cart");
-				us.addToCart("Standard Cash Envelope", 3.00F, 1);
+				us.addToCart("Standard Cash Envelopes", 3.00F, 1);
+				loggedUser.setCart(1);
+				
 				
 				break;
 				
