@@ -1,9 +1,9 @@
 
 package com.revature.menu;
 
-import com.revature.model.*;
 import java.util.Scanner;
 
+import com.revature.beans.*;
 //import com.revature.model.User;
 import com.revature.services.UserServices;
 import com.revature.util.SingletonScanner;

@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.model.User;
-import com.revature.model.UserType;
+import com.revature.beans.User;
+import com.revature.beans.UserType;
 
 public class UserDAO implements Serializable {
 

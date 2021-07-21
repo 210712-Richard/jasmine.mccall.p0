@@ -2,8 +2,8 @@ package com.revature.services;
 
 import java.time.LocalDate;
 
-import com.revature.model.Cart;
-import com.revature.model.User;
+import com.revature.beans.Cart;
+import com.revature.beans.User;
 import com.revature.data.UserDAO;
 
 public class UserServices {
