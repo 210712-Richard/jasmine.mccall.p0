@@ -6,8 +6,8 @@ package com.revature.data;
 	import java.util.ArrayList;
 	import java.util.List;
 
+import com.revature.beans.Item;
 import com.revature.data.DataSerializer2;
-import com.revature.model.Item;
 
 
 	public class ItemDAO implements Serializable {
