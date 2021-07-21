@@ -4,6 +4,7 @@ package com.revature.menu;
 import java.util.Scanner;
 
 import com.revature.beans.*;
+import com.revature.data.ItemDAO;
 //import com.revature.model.User;
 import com.revature.services.UserServices;
 import com.revature.util.SingletonScanner;
@@ -14,6 +15,7 @@ public class StartMenu {
 	private UserServices us = new UserServices();
 	private User loggedUser = null;
 	private Scanner scan = SingletonScanner.getScanner().getScan();
+	private ItemDAO id = new ItemDAO();
 	//private User newUser = null;
 	
 	public void start() {
@@ -176,9 +178,7 @@ public class StartMenu {
 			
 		switch(sellerMenu()) {
 		    case 1:
-		    	
-			   addMenu();
-			   break;
+				break;
 			   
 			case 2:		
 			// show new orders
@@ -222,14 +222,19 @@ public class StartMenu {
 //	}	
 
 	
-	private void addMenu() {
-			System.out.println("What would you like to add?");
+	//private void add() {
+			//System.out.println("What would you like to add?");
+			//String newItem = scan.nextLine();
+//			System.out.println("What is the price of the item?");
+//			Float price = scan.nextFloat();
+//			us.newItem(newItem, price);
+//			
 			
-			System.out.println("What is the price of the item?");
+			//System.out.println("What is the price of the item?");
 			//price.item = scan.nextFloat();
 			//System.out.println("\t3. Logout");
 			//return select();
-		}
+		//}
 		
 	
 	

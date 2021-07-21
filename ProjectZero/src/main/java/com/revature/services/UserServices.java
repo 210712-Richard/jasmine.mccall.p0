@@ -3,12 +3,15 @@ package com.revature.services;
 import java.time.LocalDate;
 
 import com.revature.beans.Cart;
+import com.revature.beans.Item;
 import com.revature.beans.User;
+import com.revature.data.ItemDAO;
 import com.revature.data.UserDAO;
 
 public class UserServices {
 	
 	public UserDAO ud = new UserDAO();
+	public ItemDAO id = new ItemDAO();
 	
 	public User login(String name) {
 		User u = ud.getUser(name);
@@ -33,6 +36,14 @@ public class UserServices {
 		ud.writeToFile();
 	}
 	
+	public void newItem(String name, Float price) {
+		Item i = new Item(name, price);
+		i.setName(name);
+		i.setPrice(0);
+		id.addItem(i);
+		id.writeToFile();
+		
+	}
 	public boolean hasCheckedIn(User user) {
 		if(LocalDate.now().isAfter(user.getLastCheckIn())) {
 			return false;

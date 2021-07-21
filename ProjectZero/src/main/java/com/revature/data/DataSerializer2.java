@@ -17,18 +17,18 @@ package com.revature.data;
 		private static final long serialVersionUID = 1L;
 
 		public List<T> readObjectsFromFile(String filename) {
-			List<T> User = null;
+			List<T> Item = null;
 			try(ObjectInputStream o = new ObjectInputStream(new FileInputStream(filename));){
-				User = (ArrayList<T>) o.readObject();
+				Item = (ArrayList<T>) o.readObject();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return User;
+			return Item;
 		}
 
-		public void writeObjectsToFile(List<T> User, String filename) {
+		public void writeObjectsToFile(List<T> Item, String filename) {
 			try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(filename));){
-				o.writeObject(User);
+				o.writeObject(Item);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
