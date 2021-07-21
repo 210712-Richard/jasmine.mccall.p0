@@ -1,10 +1,10 @@
 
 package com.revature.menu;
 
-import java.util.ArrayList;
+import com.revature.model.*;
 import java.util.Scanner;
 
-import com.revature.model.User;
+//import com.revature.model.User;
 import com.revature.services.UserServices;
 import com.revature.util.SingletonScanner;
 
@@ -79,7 +79,8 @@ public class StartMenu {
 				
 			case 2: 
 				// view cart
-				System.out.println("You have _ in your cart" );
+				
+				System.out.println("You have " + loggedUser.getInventory() + "in your cart" );
 				break;
 			case 3:
 				//get coupon
@@ -143,6 +144,7 @@ public class StartMenu {
 			case 1:
 				System.out.println("++Added to Cart");
 				//loggedUser
+				
 				break;
 				
 			case 2: 
@@ -150,6 +152,7 @@ public class StartMenu {
 				break;
 				
 			case 3:
+				
 				System.out.println("++Added to Cart");
 				break;
 			case 4:
@@ -221,7 +224,7 @@ public class StartMenu {
 	
 	private void addMenu() {
 			System.out.println("What would you like to add?");
-			//add.item = scan.nextLine();
+			
 			System.out.println("What is the price of the item?");
 			//price.item = scan.nextFloat();
 			//System.out.println("\t3. Logout");

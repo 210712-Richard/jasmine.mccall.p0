@@ -1,5 +1,4 @@
 package com.revature.model;
-import com.revature.model.*;
 import java.text.NumberFormat;
 
 public class Cart<T> {
@@ -31,9 +30,10 @@ public class Cart<T> {
 		
 		
    public void addToCart (String name, float price, int quantity) {
-   
+	   NumberFormat currency = NumberFormat.getCurrencyInstance();
        Item temp = new Item(name, price);
        totalPrice += (price * quantity);
+       currency.format(totalPrice);
        array[itemCount] = temp;
        itemCount += 1;
        
