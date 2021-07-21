@@ -15,7 +15,6 @@ public class StartMenu {
 	private UserServices us = new UserServices();
 	private User loggedUser = null;
 	private Scanner scan = SingletonScanner.getScanner().getScan();
-	private ItemDAO id = new ItemDAO();
 	//private User newUser = null;
 	
 	public void start() {
@@ -145,7 +144,7 @@ public class StartMenu {
 			switch(colorMenu()) {
 			case 1:
 				System.out.println("++Added to Cart");
-				//loggedUser
+				us.addToCart("Standard Cash Envelope", 3.00F, 1);
 				
 				break;
 				
@@ -178,6 +177,13 @@ public class StartMenu {
 			
 		switch(sellerMenu()) {
 		    case 1:
+				System.out.println("What would you like to add?");
+				String newItem = scan.nextLine();
+				System.out.println("What is the price of the item?");
+				Float price = scan.nextFloat();
+				System.out.println("Adding....");
+				System.out.println("Item added successfully!");
+				us.newItem(newItem, price);
 				break;
 			   
 			case 2:		

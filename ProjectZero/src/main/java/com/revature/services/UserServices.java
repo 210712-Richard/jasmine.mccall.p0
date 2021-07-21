@@ -44,6 +44,13 @@ public class UserServices {
 		id.writeToFile();
 		
 	}
+	public void addToCart(String name, float price, int quantity) {
+		Cart c = new Cart();
+		c.addToCart(name, price, quantity);
+		
+		
+		
+	}
 	public boolean hasCheckedIn(User user) {
 		if(LocalDate.now().isAfter(user.getLastCheckIn())) {
 			return false;

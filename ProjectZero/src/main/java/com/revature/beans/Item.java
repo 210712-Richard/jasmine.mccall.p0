@@ -1,9 +1,14 @@
 package com.revature.beans;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 
-public class Item {
+public class Item implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private float price;
 	private int quantity;

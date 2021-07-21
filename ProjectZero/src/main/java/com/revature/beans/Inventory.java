@@ -1,9 +1,14 @@
 package com.revature.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Item> item = new ArrayList<Item>();
 	
 	public Inventory () {

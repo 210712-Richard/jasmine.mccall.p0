@@ -1,10 +1,15 @@
 package com.revature.beans;
+import java.io.Serializable;
 import java.text.NumberFormat;
 
-public class Cart<T> {
+public class Cart implements Serializable {
 
 
-   private Item[] array;
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Item[] array;
    private int itemCount;  
    private float totalPrice;
    public static final Integer INITIAL_CAPACITY = 25;
