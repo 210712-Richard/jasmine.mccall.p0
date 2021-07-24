@@ -2,10 +2,7 @@
 package com.revature.menu;
 
 import java.util.Scanner;
-
-import com.revature.beans.*;
-import com.revature.data.ItemDAO;
-//import com.revature.model.User;
+import com.revature.beans.User;
 import com.revature.services.UserServices;
 import com.revature.util.SingletonScanner;
 
@@ -115,13 +112,15 @@ public class StartMenu {
 			
 			switch(shopMenu()) {
 			case 1:
-                color();
+				System.out.println("++Added to Cart");
+				us.addToCart(loggedUser);
+				
                 break;
 			case 2:
-				color();
+				System.out.println("++Added to Cart");
 				break;
 			case 3:
-				color();
+				System.out.println("++Added to Cart");
 				break;
 			case 4:
 				customer(); 
@@ -131,6 +130,9 @@ public class StartMenu {
 			}
 	private int shopMenu() {
 		System.out.println("What would you like to buy?");
+		//List<Item> item = new Inventory().getInventory();
+		//private List<Item> itm = new ArrayList<Item>();
+		
 		System.out.println("\t1. Standard Cash Envelopes - $3.00");
 		System.out.println("\t2. Mini Cash Envelopes - $2.50");
 		System.out.println("\t3. Cash Breakdown Card - $2.00");
@@ -138,41 +140,40 @@ public class StartMenu {
 		return select();
 	}
 	
-	public void color() {
-		
-		while(true) {
-			switch(colorMenu()) {
-			case 1:
-				System.out.println("++Added to Cart");
-				us.addToCart("Standard Cash Envelopes", 3.00F, 1);
-				loggedUser.setCart(1);
-				
-				
-				break;
-				
-			case 2: 
-				System.out.println("++Added to Cart");
-				break;
-				
-			case 3:
-				
-				System.out.println("++Added to Cart");
-				break;
-			case 4:
-				shop();
-				break;
-				}
-			
-	}
-			}
-	private int colorMenu() {
-		System.out.println("Which color would you like?");
-		System.out.println("\t1. Blush Pink");
-		System.out.println("\t2. White");
-		System.out.println("\t3. Tan");
-        System.out.println("\t4. Go Back");
-		return select();
-	}
+//	public void color() {
+//		
+//		while(true) {
+//			switch(colorMenu()) {
+//			case 1:
+//				System.out.println("++Added to Cart");
+//				us.addToCart(loggedUser);
+//				
+//				
+//				break;
+//				
+//			case 2: 
+//				System.out.println("++Added to Cart");
+//				break;
+//				
+//			case 3:
+//				
+//				System.out.println("++Added to Cart");
+//				break;
+//			case 4:
+//				shop();
+//				break;
+//				}
+//			
+//	}
+//			}
+//	private int colorMenu() {
+//		System.out.println("Which color would you like?");
+//		System.out.println("\t1. Blush Pink");
+//		System.out.println("\t2. White");
+//		System.out.println("\t3. Tan");
+//        System.out.println("\t4. Go Back");
+//		return select();
+//	}
 	
 	public void seller() {
 		while(true) {
@@ -183,13 +184,16 @@ public class StartMenu {
 				String newItem = scan.nextLine();
 				System.out.println("What is the price of the item?");
 				Float price = scan.nextFloat();
+				System.out.println("What is item ID number?");
+				int itemID = scan.nextInt();
 				System.out.println("Adding....");
 				System.out.println("Item added successfully!");
-				us.newItem(newItem, price);
+				us.newItem(newItem, price, itemID);
 				break;
 			   
 			case 2:		
 			// show new orders
+			
 				System.out.println("Orders Processed Successfully!");
 				break;
 				

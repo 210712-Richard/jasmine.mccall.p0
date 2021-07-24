@@ -1,63 +1,35 @@
-package com.revature.beans;
-import java.io.Serializable;
-import java.text.NumberFormat;
-
-public class Cart implements Serializable {
-
-
-   /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-private Item[] array;
-   private int itemCount;  
-   private float totalPrice;
-   public static final Integer INITIAL_CAPACITY = 25;
-   private int capacity;
-   
-   public Cart() {
-		this(Cart.INITIAL_CAPACITY);
-	}
-
-	public Cart (int capacity) {
-		array = new Item[capacity];
-		this.capacity = capacity;
-		this.itemCount = 0;
-   }
-	
-//	public T get(int index) {
-//		if(index > itemCount || index < 0) {
-//			return null;
-//		}
-//		return this.array[index];
+//package com.revature.beans;
+//
+//import java.io.Serializable;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class Cart implements Serializable {
+//	/**
+//	 * 
+//	 */
+//	private static final long serialVersionUID = 1L;
+//	private List<Item> itemsInCart = new ArrayList<>();
+//	
+//	public void addItem(Item item) {
+//		this.itemsInCart.add(item);
 //	}
-////		return (T) this.array[index];
-		
-		
-   public void addToCart (String name, float price, int quantity) {
-	   NumberFormat currency = NumberFormat.getCurrencyInstance();
-       Item temp = new Item(name, price);
-       totalPrice += (price * quantity);
-       currency.format(totalPrice);
-       array[itemCount] = temp;
-       itemCount += 1;
-       
-       if(itemCount==capacity)
-       {
-           increaseSize();
-       }
-   }
-
-   //add a remove method
-   private void increaseSize()
-   {
-       Item[] temp = new Item[capacity * 2];
-       for(int i=0; i < capacity; i++)
-       {
-           temp[i] = array[i];
-       }
-       array = temp; 
-       temp = null;
-       capacity = array.length;
-   }
-}
+//	
+//	public int totalItems () {
+//		int total = 0;
+//		for (Item items: itemsInCart) {
+//			total += items.getQuantity();
+//		}
+//		return total;
+//	}
+//
+//	public void addToCart(String name, float price, int quantity) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	public void addItem(String name, float price, int quantity) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//}

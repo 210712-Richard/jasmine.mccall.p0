@@ -2,6 +2,7 @@ package com.revature.beans;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,16 +14,16 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username; 
 	private String email;
-	private List <Inventory> inventory;
 	private int coupon;
 	private UserType type;
 	private LocalDate lastCheckIn;
-	public static int cart;
+	private List<Item> cart;
 	
 	public User() {
 		super();
 		this.type = UserType.CUSTOMER;
 		this.lastCheckIn = LocalDate.of(2021,1,1);
+		this.cart = new ArrayList<Item>();
 		
 	}
 	public User(String username, String email, int coupon) {
@@ -31,43 +32,17 @@ public class User implements Serializable {
 		this.email = email;
 		this.coupon = coupon;
 	}
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public List<Inventory> getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(List<Inventory> inventory) {
-		this.inventory = inventory;
-	}
-	
-	public LocalDate getLastCheckIn() {
-		return lastCheckIn;
-	}
-	public void setLastCheckIn(LocalDate lastCheckIn) {
-		this.lastCheckIn = lastCheckIn;
-	}
-	
-	public UserType getType() {
-		return type;
-	}
-	public void setType(UserType type) {
-		this.type = type;
 	}
 	public int getCoupon() {
 		return coupon;
@@ -75,20 +50,31 @@ public class User implements Serializable {
 	public void setCoupon(int coupon) {
 		this.coupon = coupon;
 	}
-	
-	public int getCart() {
+	public UserType getType() {
+		return type;
+	}
+	public void setType(UserType type) {
+		this.type = type;
+	}
+	public LocalDate getLastCheckIn() {
+		return lastCheckIn;
+	}
+	public void setLastCheckIn(LocalDate lastCheckIn) {
+		this.lastCheckIn = lastCheckIn;
+	}
+	public List<Item> getCart() {
 		return cart;
 	}
-	public void setCart(int cart) {
-		User.cart = cart;
+	public void setCart(List<Item> cart) {
+		this.cart = cart;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cart == null) ? 0 : cart.hashCode());
 		result = prime * result + coupon;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
 		result = prime * result + ((lastCheckIn == null) ? 0 : lastCheckIn.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -103,17 +89,17 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (cart == null) {
+			if (other.cart != null)
+				return false;
+		} else if (!cart.equals(other.cart))
+			return false;
 		if (coupon != other.coupon)
 			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
-			return false;
-		if (inventory == null) {
-			if (other.inventory != null)
-				return false;
-		} else if (!inventory.equals(other.inventory))
 			return false;
 		if (lastCheckIn == null) {
 			if (other.lastCheckIn != null)
@@ -129,14 +115,10 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", type=" + type + ", lastCheckIn=" + lastCheckIn
-				+ "]";
+		return "User [username=" + username + ", email=" + email + ", coupon=" + coupon + ", type=" + type
+				+ ", lastCheckIn=" + lastCheckIn + ", cart=" + cart + "]";
 	}
-
-
+	}
 	
-
-}

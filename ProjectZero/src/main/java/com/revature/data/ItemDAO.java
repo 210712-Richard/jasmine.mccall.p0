@@ -7,7 +7,7 @@ package com.revature.data;
 	import java.util.List;
 
 import com.revature.beans.Item;
-import com.revature.data.DataSerializer2;
+
 
 
 	public class ItemDAO implements Serializable {
@@ -26,14 +26,15 @@ import com.revature.data.DataSerializer2;
 			
 			if(item == null) {
 				item = new ArrayList<Item>();
-				item.add(new Item("Standard Cash Envelopes", 3.00F));
-				item.add(new Item("Mini Cash Envelopes", 2.50F));
-				item.add(new Item("Cash Breakdown", 2.00F));
+				item.add(new Item("Standard Cash Envelopes", 3.00F, 1));
+				item.add(new Item("Mini Cash Envelopes", 2.50F, 2));
+				item.add(new Item("Cash Breakdown", 2.00F, 3));
 				dsr.writeObjectsToFile(item, "items.dat");
 			}
 		}
-		public void addItem(Item i) {
-			item.add(i);
+		public void addItem(Item items) {
+			items.setItemID((int)item.size());
+			item.add(items);
 
 			
 		}
@@ -41,21 +42,26 @@ import com.revature.data.DataSerializer2;
 			return item;
 		}
 		
-//		public Item getItem(String name, Float price) {
-//			
-//			for(Item item : item) {
-//				if(((ItemDAO) item).getItem().equals(name)) {
-//					return item;
-//				}
-//			
-//			
-//			return null;
-//		}
-		
+		public Item getItem(Integer itemID) {
+			return item.stream()
+					.filter((i) -> i.getItemID().equals(itemID))
+					.findFirst()
+					.orElse(null);
+		}
+		public Item getItemByName(String name) {
+			return item.stream()
+					.filter((i) -> i.getName().equals(name))
+					.findFirst()
+					.orElse(null);
+		}
+//		public List<Cart> getCart(){
+//		return cart;
+//	}
 		
 		public void writeToFile() {
 			new DataSerializer2<Item>().writeObjectsToFile(item, filename);
 		}
+
 
 	}
 
