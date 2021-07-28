@@ -1,6 +1,7 @@
 package com.revature.beans;
 
 import java.io.Serializable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,11 @@ public class User implements Serializable {
 		this.lastCheckIn = lastCheckIn;
 	}
 	public List<Item> getCart() {
+		if(cart == null) {
+			cart = new ArrayList<Item>();
+			
+		
+		}
 		return cart;
 	}
 	public void setCart(List<Item> cart) {
@@ -117,6 +123,7 @@ public class User implements Serializable {
 	}
 	@Override
 	public String toString() {
+	
 		return "User [username=" + username + ", email=" + email + ", coupon=" + coupon + ", type=" + type
 				+ ", lastCheckIn=" + lastCheckIn + ", cart=" + cart + "]";
 	}

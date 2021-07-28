@@ -3,9 +3,15 @@ package com.revature.data;
 
 
 	import java.io.Serializable;
+
 	import java.util.ArrayList;
 	import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.revature.beans.User;
+import com.revature.controllers.UserController;
 import com.revature.beans.Item;
 
 
@@ -16,6 +22,7 @@ import com.revature.beans.Item;
 		/**
 		 * 
 		 */
+		private static Logger log = LogManager.getLogger(UserController.class);
 		private static final long serialVersionUID = 1L;
 		private static String filename = "items.dat";
 		private static List<Item> item;
@@ -26,9 +33,24 @@ import com.revature.beans.Item;
 			
 			if(item == null) {
 				item = new ArrayList<Item>();
-				item.add(new Item("Standard Cash Envelopes", 3.00F, 1));
-				item.add(new Item("Mini Cash Envelopes", 2.50F, 2));
-				item.add(new Item("Cash Breakdown", 2.00F, 3));
+				Item i = new Item("Standard Cash Envelopes", 3.00D);
+				i.setQuantity(1);
+				i.setItemID((int) item.size());
+				item.add(i);
+				log.info("adding new item");
+			
+				i = new Item("Mini Cash Envelopes", 2.50D);
+				i.setQuantity(1);
+				i.setItemID((int) item.size());
+				item.add(i);
+				log.info("adding new item");
+				
+				i = new Item("Cash Breakdown Card", 2.00D);
+				i.getQuantity();
+				i.setItemID((int) item.size());
+				item.add(i);
+				log.info("adding new item");
+
 				dsr.writeObjectsToFile(item, "items.dat");
 			}
 		}
@@ -42,7 +64,7 @@ import com.revature.beans.Item;
 			return item;
 		}
 		
-		public Item getItem(Integer itemID) {
+		public Item getItemByItemID(Integer itemID) {
 			return item.stream()
 					.filter((i) -> i.getItemID().equals(itemID))
 					.findFirst()
@@ -54,12 +76,22 @@ import com.revature.beans.Item;
 					.findFirst()
 					.orElse(null);
 		}
-//		public List<Cart> getCart(){
-//		return cart;
-//	}
+		
+		public Double cartTotal() {
+			User u = new User();
+			Item it = new Item();
+			Double totalPrice = 0.0D;
+			for(int i = 0; i < u.getCart().size(); i++){
+				
+				totalPrice = it.getPrice() * it.getQuantity();
+			}
+			
+			return totalPrice;
+		}
 		
 		public void writeToFile() {
 			new DataSerializer2<Item>().writeObjectsToFile(item, filename);
+
 		}
 
 

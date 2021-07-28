@@ -1,25 +1,39 @@
 package com.revature.beans;
 
+
+
 import java.io.Serializable;
 
-public class Item implements Serializable {
+//import com.revature.data.ItemInterface;
+
+public class Item implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
-	private Float price;
-	private Integer quantity;
+	private Double price;
+	private Integer quantity = 1;
 	private Integer itemID;
+	private Double totalPrice;
+	//public int setitemID;
 
-	public Item(String name, Float price, Integer itemID) {
+	public Item(String name, Double price) {
 		super();
 		this.name = name;
 		this.price = price;
+		this.quantity = 1;
+		//this.itemID = itemID;
+
+	}
+	public Item() {
+		super();
+	}
+	public Item(Integer itemID) {
 		this.itemID = itemID;
 	}
-	
+
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -32,8 +46,8 @@ public class Item implements Serializable {
 		return itemID;
 	}
 
-	public void setItemID(Integer itemID) {
-		this.itemID = itemID;
+	public Integer setItemID(Integer itemID) {
+		return this.itemID = itemID;
 	}
 
 	public String getName() {
@@ -44,22 +58,30 @@ public class Item implements Serializable {
 		this.name = name;
 	}
 
-	public Float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(Double price) {
 		this.price = price;
+	}
+																							
+
+	@Override
+	public String toString() {
+		return "Item [name=" + name + ", price=" + price + ", quantity=" + quantity + ", itemID=" + itemID
+				+ ", totalPrice=" + totalPrice + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + itemID;
+		result = prime * result + ((itemID == null) ? 0 : itemID.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + Float.floatToIntBits(price);
-		result = prime * result + quantity;
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
+		result = prime * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
 		return result;
 	}
 
@@ -72,25 +94,44 @@ public class Item implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (itemID != other.itemID)
+		if (itemID == null) {
+			if (other.itemID != null)
+				return false;
+		} else if (!itemID.equals(other.itemID))
 			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (Float.floatToIntBits(price) != Float.floatToIntBits(other.price))
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
 			return false;
-		if (quantity != other.quantity)
+		if (quantity == null) {
+			if (other.quantity != null)
+				return false;
+		} else if (!quantity.equals(other.quantity))
+			return false;
+		if (totalPrice == null) {
+			if (other.totalPrice != null)
+				return false;
+		} else if (!totalPrice.equals(other.totalPrice))
 			return false;
 		return true;
 	}
+	public Double getTotalPrice() {
+		return quantity * price;
+	}
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
-	@Override
-	public String toString() {
-		return "Item [name=" + name + ", price=" + price + ", quantity=" + quantity + ", itemID=" + itemID + "]";
+
+		
 	}
 	
 
 
-}
+
